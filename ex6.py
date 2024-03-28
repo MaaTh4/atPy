@@ -1,21 +1,44 @@
-Turma = []
+notasAluno = []
 
 a = 1
 while a >= 0:
 
-    NotasDaTurma = int(input("Digite a nota do aluno: "))
-    Turma.append(NotasDaTurma)
-    a = NotasDaTurma
+    notas = int(input("Digite a nota do aluno: "))
+    if notas > 10:
+        print('ERROR! A nota não pode ser maior que 10. Insira uma nota válida')
+    else:
+        notasAluno.append(notas)
+        a = notas
 
-Turma.pop()
+notasAluno.pop()
 
-sort = sorted(Turma)
+sort = sorted(notasAluno)
 
-print('Foram lidas ',len(Turma), ' notas')
+print('\nForam lidas ',len(notasAluno), ' notas')
 print('Ordem crescente: ', sort)
+print('Ordem decrescente na vertical: ')
 
-# reverseSort = sorted(Turma, reverse=True)
+listaInvertida = sorted(notasAluno, reverse=True)
+for item in listaInvertida:
+    print(item)
+        
 
-# for i in range (len(reverseSort)):
-#     for x in reverseSort:
-#         print(x[i], end=' ')
+soma = sum(notasAluno)
+print(f'A soma das notas é: {soma}')
+
+media = soma/len(notasAluno)
+
+print(f'A média das notas é: {media}')
+
+acimaDaMedia = 0
+abaixoDeSete = 0
+
+for item in notasAluno:
+    if item > media:
+        acimaDaMedia += 1 
+    elif item < 7:
+        abaixoDeSete += 1 
+
+
+print(f'A quantidade de notas acima da média é: {acimaDaMedia}')
+print(f'A quantidade de notas abaixo da 7 é: {abaixoDeSete}')
